@@ -10,5 +10,28 @@
       "source": "/custom-gpts",
       "destination": "/custom-gpts.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/prompt-mastery.html",
+      "destination": "/prompt-mastery",
+      "permanent": true
+    },
+    {
+      "source": "/custom-gpts.html", 
+      "destination": "/custom-gpts",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
   ]
 }
