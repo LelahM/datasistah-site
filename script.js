@@ -219,14 +219,6 @@ document.querySelectorAll('.btn').forEach(button => {
     });
 });
 
-// Add hover effects to resource links
-document.querySelectorAll('.resource-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        showNotification('This resource will be available soon!', 'info');
-    });
-});
-
 // Copy prompt functionality
 function copyPrompt() {
     const promptText = document.querySelector('.prompt-text').textContent;

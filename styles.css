@@ -1385,7 +1385,7 @@ body {
     position: absolute;
     left: 45px;
     top: 80px;
-    bottom: -30px;
+    bottom: 20px;
     width: 2px;
     background: rgba(0, 217, 255, 0.2);
     z-index: 0;
