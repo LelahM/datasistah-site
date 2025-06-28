@@ -2309,3 +2309,131 @@ body {
 .reset-prompt-btn:active {
     transform: translateY(0);
 }
+
+/* Contact Options Styles */
+.contact-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0 3rem;
+}
+
+.contact-option {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 217, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.contact-option:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-accent);
+    box-shadow: var(--shadow-medium);
+}
+
+.contact-option:hover::before {
+    transform: scaleX(1);
+}
+
+.option-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.contact-option:hover .option-icon {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+}
+
+.contact-option h4 {
+    font-size: 1.5rem;
+    color: var(--primary-text);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.contact-option p {
+    color: var(--secondary-text);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.contact-option .btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-option .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 217, 255, 0.3);
+}
+
+.contact-note {
+    background: var(--accent-bg);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.contact-note p {
+    color: var(--accent-text);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.contact-note strong {
+    color: var(--primary-accent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-options {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-option {
+        padding: 1.5rem;
+    }
+    
+    .option-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .contact-option h4 {
+        font-size: 1.25rem;
+    }
+}

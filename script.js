@@ -62,67 +62,9 @@ const observeElements = () => {
     });
 };
 
-// Contact Form Handling
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const formStatus = document.getElementById('form-status');
-    
-    // Replace this URL with your Google Apps Script Web App URL
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzB1LU9jdjyJ9uK9kOy5omIQE27gHLjjhIBh9SPwkNBZopRuCDax8PBXhaEJWspz-rN/exec';
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            submitBtn.classList.add('loading');
-            submitBtn.disabled = true;
-            formStatus.style.display = 'none';
-            
-            // Collect form data
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-            
-            try {
-                // Send to Google Apps Script
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // Required for Google Apps Script
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                // Show success message
-                showStatus('success', '✅ Thank you! Your message has been sent. I\'ll get back to you within 24 hours.');
-                contactForm.reset();
-                
-            } catch (error) {
-                console.error('Form submission error:', error);
-                showStatus('error', '❌ Sorry, there was an error sending your message. Please try emailing me directly at tiffany@datasistah.com');
-            } finally {
-                // Reset button state
-                submitBtn.classList.remove('loading');
-                submitBtn.disabled = false;
-            }
-        });
-    }
-    
-    function showStatus(type, message) {
-        formStatus.className = `form-status ${type}`;
-        formStatus.textContent = message;
-        formStatus.style.display = 'block';
-        
-        // Auto-hide success messages after 5 seconds
-        if (type === 'success') {
-            setTimeout(() => {
-                formStatus.style.display = 'none';
-            }, 5000);
-        }
-    }
-});
+// Contact Form Handling - REMOVED
+// Contact form has been replaced with Calendly and direct email options
+// No JavaScript needed for the new contact setup
 
 // Notification system
 function showNotification(message, type = 'info') {
