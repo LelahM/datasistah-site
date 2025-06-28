@@ -2437,3 +2437,16 @@ body {
         font-size: 1.25rem;
     }
 }
+
+/* About CTA */
+.about-cta {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 217, 255, 0.1);
+}
+
+.about-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
