@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Mastery - Enhance Your AI Conversations | Custom GPT Academy</title>
+    <title>Prompt Mastery - Enhance Your AI Conversations | AITeach Pro</title>
     <meta name="description" content="Master the art of AI prompting with our comprehensive guide. Learn effective techniques and use our free prompt booster tool.">
     <meta name="keywords" content="AI prompting, prompt engineering, ChatGPT prompts, AI communication, prompt techniques">
     
@@ -26,11 +26,11 @@
             <div class="logo-container">
                 <div class="logo-icon">
                     <i class="fas fa-brain"></i>
-                    <i class="fas fa-plus"></i>
+                    <i class="fas fa-magic"></i>
                 </div>
                 <div class="logo-text">
-                    <h2>Custom GPT Academy</h2>
-                    <span>Master AI Innovation</span>
+                    <h2>AITeach Pro</h2>
+                    <span>Create, Don't Buy</span>
                 </div>
             </div>
             <ul class="nav-menu">
@@ -38,13 +38,13 @@
                     <a href="index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="marketplace.html" class="nav-link">GPT Marketplace</a>
-                </li>
-                <li class="nav-item">
                     <a href="prompt-mastery.html" class="nav-link active">Prompt Mastery</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="custom-gpts.html" class="nav-link">Custom GPTs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -235,18 +235,17 @@
             <!-- AI Prompt Booster Tool -->
             <div class="ai-prompt-improver" id="prompt-booster">
                 <div class="improver-header">
-                    <h3><i class="fas fa-magic"></i> Free AI Prompt Booster</h3>
+                    <h3>Free AI Prompt Booster</h3>
                     <p>Paste your prompt below and watch it transform into a powerful AI instruction</p>
                 </div>
                 
                 <div class="tool-description">
                     <h4>How It Works</h4>
-                    <p>Simply write your prompt the way you naturally would, then our enhancement tool will add the missing elements that make AI responses significantly more effective and valuable.</p>
+                    <p>Edit the prompt below by adding your original prompt where it says [USER_PROMPT], then copy and paste the entire enhanced prompt into ChatGPT to get a much more effective version of your original prompt.</p>
                 </div>
 
                 <div class="meta-prompt">
-                    <div class="prompt-text">
-You are an expert prompt engineer. Your task is to enhance user prompts to make them more effective for AI interactions.
+                    <textarea class="gpt-template-editor" id="promptBoosterText" rows="15">You are an expert prompt engineer. Your task is to enhance user prompts to make them more effective for AI interactions.
 
 Take the user's original prompt and improve it by:
 1. Adding a clear persona/role for the AI to adopt
@@ -259,12 +258,17 @@ Keep the user's original intent and voice while making the prompt more structure
 
 Original prompt: [USER_PROMPT]
 
-Enhanced prompt:
+Enhanced prompt:</textarea>
+                    <div class="button-group">
+                        <button class="copy-prompt-btn" onclick="copyPrompt()">
+                            <i class="fas fa-copy"></i>
+                            Copy Booster Prompt
+                        </button>
+                        <button class="reset-prompt-btn" onclick="resetPromptBooster()">
+                            <i class="fas fa-undo"></i>
+                            Reset
+                        </button>
                     </div>
-                    <button class="copy-prompt-btn" onclick="copyPrompt()">
-                        <i class="fas fa-copy"></i>
-                        Copy Booster Prompt
-                    </button>
                 </div>
             </div>
         </div>
@@ -408,8 +412,8 @@ Enhanced prompt:
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="marketplace.html">GPT Marketplace</a></li>
                         <li><a href="prompt-mastery.html">Prompt Mastery</a></li>
+                        <li><a href="custom-gpts.html">Custom GPTs</a></li>
                         <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -417,10 +421,10 @@ Enhanced prompt:
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#custom-gpt">Custom GPT Development</a></li>
-                        <li><a href="#consulting">AI Strategy Consulting</a></li>
-                        <li><a href="#training">Training & Workshops</a></li>
-                        <li><a href="#support">Ongoing Support</a></li>
+                        <li><a href="index.html#contact">Custom GPT Development</a></li>
+                        <li><a href="index.html#contact">AI Strategy Consulting</a></li>
+                        <li><a href="index.html#contact">Training & Workshops</a></li>
+                        <li><a href="index.html#contact">Ongoing Support</a></li>
                     </ul>
                 </div>
                 
@@ -458,16 +462,147 @@ Enhanced prompt:
     </footer>
 
     <script>
+        // Reset prompt booster to original state
+        function resetPromptBooster() {
+            const promptTextarea = document.getElementById('promptBoosterText');
+            if (promptTextarea) {
+                const originalPrompt = `You are an expert prompt engineer. Your task is to enhance user prompts to make them more effective for AI interactions.
+
+Take the user's original prompt and improve it by:
+1. Adding a clear persona/role for the AI to adopt
+2. Making the desired output format more specific
+3. Adding relevant context and constraints
+4. Including examples or comparisons when helpful
+5. Clarifying the tone and style
+
+Keep the user's original intent and voice while making the prompt more structured and specific. Return only the enhanced prompt without explanations.
+
+Original prompt: [USER_PROMPT]
+
+Enhanced prompt:`;
+                
+                promptTextarea.value = originalPrompt;
+                showNotification('Prompt booster reset to original!', 'success');
+            }
+        }
+
         // Copy prompt functionality
         function copyPrompt() {
-            const promptText = document.querySelector('.prompt-text').textContent;
-            navigator.clipboard.writeText(promptText).then(() => {
-                const button = document.querySelector('.copy-prompt-btn');
-                const originalText = button.innerHTML;
-                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            const promptTextarea = document.getElementById('promptBoosterText');
+            if (promptTextarea) {
+                const promptText = promptTextarea.value.trim();
+                
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(promptText).then(() => {
+                        showNotification('Prompt Booster copied to clipboard!', 'success');
+                    }).catch(() => {
+                        fallbackCopy(promptText);
+                    });
+                } else {
+                    fallbackCopy(promptText);
+                }
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showNotification('Prompt Booster copied to clipboard!', 'success');
+                } else {
+                    showNotification('Failed to copy prompt booster', 'error');
+                }
+            } catch (err) {
+                console.error('Copy failed:', err);
+                showNotification('Failed to copy prompt booster', 'error');
+            } finally {
+                document.body.removeChild(textArea);
+            }
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notification => notification.remove());
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span>${message}</span>
+                    <button class="notification-close">&times;</button>
+                </div>
+            `;
+            
+            // Add styles
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#2563eb'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                z-index: 9999;
+                max-width: 400px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            `;
+            
+            notification.querySelector('.notification-content').style.cssText = `
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+            `;
+            
+            notification.querySelector('.notification-close').style.cssText = `
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+                padding: 0;
+                line-height: 1;
+            `;
+            
+            // Add to DOM
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
                 setTimeout(() => {
-                    button.innerHTML = originalText;
-                }, 2000);
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 5000);
+            
+            // Close button functionality
+            notification.querySelector('.notification-close').addEventListener('click', () => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 300);
             });
         }
 

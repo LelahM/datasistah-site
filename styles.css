@@ -797,6 +797,7 @@ body {
     background: var(--gradient-primary);
     border-radius: 20px;
     padding: 3rem;
+    margin-top: 4rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -2225,4 +2226,86 @@ body {
     display: inline-flex !important;
     align-items: center;
     gap: 0.5rem;
+}
+
+/* GPT Template Editor */
+.gpt-template-editor {
+    width: 100%;
+    background: var(--primary-bg);
+    color: var(--primary-text);
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    resize: vertical;
+    min-height: 600px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.gpt-template-editor:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+    background: var(--accent-bg);
+}
+
+.gpt-template-editor::placeholder {
+    color: var(--secondary-text);
+}
+
+/* Scrollbar styling for the textarea */
+.gpt-template-editor::-webkit-scrollbar {
+    width: 8px;
+}
+
+.gpt-template-editor::-webkit-scrollbar-track {
+    background: var(--accent-bg);
+    border-radius: 4px;
+}
+
+.gpt-template-editor::-webkit-scrollbar-thumb {
+    background: rgba(0, 217, 255, 0.3);
+    border-radius: 4px;
+}
+
+.gpt-template-editor::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 217, 255, 0.5);
+}
+
+/* Button Group for Copy and Reset */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.reset-prompt-btn {
+    background: var(--accent-bg);
+    color: var(--secondary-text);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.reset-prompt-btn:hover {
+    background: rgba(255, 107, 53, 0.1);
+    color: var(--secondary-accent);
+    border-color: var(--secondary-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+}
+
+.reset-prompt-btn:active {
+    transform: translateY(0);
 }

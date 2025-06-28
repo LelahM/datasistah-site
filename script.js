@@ -229,6 +229,110 @@ function copyPrompt() {
     });
 }
 
+// Copy GPT template functionality
+function copyGPTTemplate() {
+    const templateTextarea = document.getElementById('gptTemplateText');
+    if (templateTextarea) {
+        // Get the current value from the textarea (which may have been edited by the user)
+        const templateText = templateTextarea.value.trim();
+        
+        // Use the more robust clipboard API
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(templateText).then(() => {
+                showNotification('GPT Prompt Booster copied to clipboard!', 'success');
+            }).catch((err) => {
+                console.error('Failed to copy prompt booster:', err);
+                fallbackCopyMethod(templateText);
+            });
+        } else {
+            fallbackCopyMethod(templateText);
+        }
+    } else {
+        showNotification('Prompt template not found', 'error');
+        console.error('Could not find GPT template textarea');
+    }
+}
+
+// Fallback copy method for older browsers
+function fallbackCopyMethod(text) {
+    try {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        if (successful) {
+            showNotification('GPT Prompt Booster copied to clipboard!', 'success');
+        } else {
+            showNotification('Failed to copy prompt booster', 'error');
+        }
+    } catch (err) {
+        console.error('Fallback copy failed:', err);
+        showNotification('Failed to copy prompt booster', 'error');
+    }
+}
+
+// Reset GPT template to original state
+function resetGPTTemplate() {
+    const templateTextarea = document.getElementById('gptTemplateText');
+    if (templateTextarea) {
+        const originalTemplate = `Please create optimized instructions for a custom GPT based on the following specifications. Return the instructions in strict markdown format with proper headers, bullet points, and formatting that I can copy directly into the GPT builder.
+
+## GPT Specifications:
+
+**Purpose & Goal:**
+- This GPT is designed to help with: [e.g., "creating differentiated math worksheets for 4th grade students"]
+- Primary output should be: [e.g., "printable worksheets with answer keys"]
+- Key functionality needed: [e.g., "adjust difficulty levels, include visual aids, align to Common Core standards"]
+
+**Target Users:**
+- Primary users: [e.g., "elementary school teachers, homeschool parents"]
+- User skill level: [e.g., "beginner to intermediate with technology"]
+- Main challenges users face: [e.g., "not enough time to create materials, need multiple difficulty levels"]
+
+**Communication Style:**
+- Tone: [e.g., "encouraging and supportive"]
+- Personality: [e.g., "like a helpful teaching mentor"]
+- Language level: [e.g., "clear and jargon-free"]
+- Avoid: [e.g., "complex educational theory, overwhelming choices"]
+
+**Response Format:**
+- Structure responses as: [e.g., "numbered steps with brief explanations"]
+- Include: [e.g., "examples, implementation tips, time estimates"]
+- Length: [e.g., "concise but comprehensive, under 300 words unless requested"]
+- Special formatting: [e.g., "use tables for comparing options"]
+
+**Knowledge & References:**
+- Key standards/frameworks: [e.g., "Common Core Math Standards, Bloom's Taxonomy"]
+- Preferred methodologies: [e.g., "hands-on learning, visual representations"]
+- Resources to reference: [e.g., "research-based teaching strategies"]
+
+**Important Restrictions:**
+- Never do: [e.g., "provide direct homework answers to students"]
+- Always avoid: [e.g., "suggesting expensive materials or complex technology"]
+- Privacy considerations: [e.g., "don't request student personal information"]
+- Safety guidelines: [e.g., "ensure age-appropriate content only"]
+
+**Special Instructions:**
+- Always ask clarifying questions when: [e.g., "grade level or topic isn't specified"]
+- Provide multiple options when: [e.g., "creating lesson activities"]
+- Include these elements: [e.g., "time estimates, material lists, differentiation tips"]
+- End responses with: [e.g., "asking if the user needs modifications or has questions"]
+
+Please transform this into professional GPT instructions with clear sections, proper markdown formatting, and actionable directives that will make this GPT highly effective for educators.`;
+        
+        templateTextarea.value = originalTemplate;
+        showNotification('GPT template reset to original!', 'success');
+    }
+}
+
 // Add interactive animations to stats
 function animateStats() {
     const stats = document.querySelectorAll('.stat-number');

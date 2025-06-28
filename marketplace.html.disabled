@@ -12,16 +12,12 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <div class="logo-container">
-                    <div class="logo-icon">
-                        <i class="fas fa-brain"></i>
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="logo-text">
-                        <h2>AITeach Pro</h2>
-                        <span>Create, Don't Buy</span>
-                    </div>
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-brain"></i>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="logo-text">                        <h2>AITeach Pro</h2>                        <span>Create, Don't Buy</span>
                 </div>
             </div>
             <ul class="nav-menu">
@@ -29,22 +25,13 @@
                     <a href="index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.html#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="index.html#why-create" class="nav-link">Why Create</a>
-                </li>
-                <li class="nav-item">
-                    <a href="index.html#solutions" class="nav-link">AI Solutions</a>
-                </li>
-                <li class="nav-item">
                     <a href="marketplace.html" class="nav-link active">GPT Marketplace</a>
                 </li>
                 <li class="nav-item">
-                    <a href="prompt-mastery.html" class="nav-link">Prompt Mastery</a>
+                    <a href="custom-gpts.html" class="nav-link">Custom GPTs</a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.html#resources" class="nav-link">Resources</a>
+                    <a href="prompt-mastery.html" class="nav-link">Prompt Mastery</a>
                 </li>
                 <li class="nav-item">
                     <a href="index.html#contact" class="nav-link">Contact</a>
@@ -392,8 +379,9 @@
                     <h4>Explore & Learn</h4>
                     <ul>
                         <li><a href="marketplace.html">GPT Marketplace</a></li>
+                        <li><a href="custom-gpts.html">Custom GPTs</a></li>
                         <li><a href="index.html#solutions">AI Solutions</a></li>
-                        <li><a href="index.html#prompting">Prompt Mastery</a></li>
+                        <li><a href="prompt-mastery.html">Prompt Mastery</a></li>
                         <li><a href="index.html#why-create">Why Create Your Own</a></li>
                     </ul>
                 </div>
