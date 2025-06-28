@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/prompt-mastery",
+      "destination": "/prompt-mastery.html"
+    },
+    {
+      "source": "/custom-gpts",
+      "destination": "/custom-gpts.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/prompt-mastery.html",
+      "destination": "/prompt-mastery",
+      "permanent": true
+    },
+    {
+      "source": "/custom-gpts.html",
+      "destination": "/custom-gpts",
+      "permanent": true
+    }
+  ]
+}
