@@ -418,13 +418,33 @@
             
             <div class="tool-description">
                 <h4>How to Use This GPT Prompt Booster</h4>
-                <p>Edit the template below by filling in your specific requirements in the bracketed sections, then copy and paste the entire prompt into ChatGPT. ChatGPT will return a polished, ready-to-use instruction set for your custom GPT in perfect markdown format.</p>
+                <p>Edit the template below by replacing [USER INSTRUCTIONS] with your desired requirements, then copy and paste the entire prompt into ChatGPT. ChatGPT will return a polished, ready-to-use instruction set for your custom GPT in perfect markdown format.</p>
             </div>
             
             <div class="meta-prompt">
-                <textarea class="gpt-template-editor" id="gptTemplateText" rows="25">Please create optimized instructions for a custom GPT based on the following specifications. Return the instructions in strict markdown format with proper headers, bullet points, and formatting that I can copy directly into the GPT builder.
+                <textarea class="gpt-template-editor" id="gptTemplateText" rows="25">You are a skilled prompt writer. Your job is to take the user's specifications and turn them into optimized instructions for building a custom GPT.
 
-## GPT Specifications:
+Use the following format:
+
+- Return the completed instructions using **strict markdown formatting** with:
+  - Proper headers
+  - Bullet points
+  - Clear organization
+
+Use the user-provided specifications to fill in the correct sections of the template below. Be sure the final output is structured and ready to copy and paste into the GPT Builder.
+
+---
+
+**Here is the user's information:**  [USER INSTRUCTIONS]
+
+**Your task:**  
+- Extract key information from the user's input  
+- Complete the template using their purpose, audience, tone, and instructions  
+- Return the finished instructions inside a markdown code block  
+
+
+**Here is the template:**
+
 
 **Purpose & Goal:**
 - This GPT is designed to help with: [e.g., "creating differentiated math worksheets for 4th grade students"]
@@ -465,7 +485,10 @@
 - Include these elements: [e.g., "time estimates, material lists, differentiation tips"]
 - End responses with: [e.g., "asking if the user needs modifications or has questions"]
 
-Please transform this into professional GPT instructions with clear sections, proper markdown formatting, and actionable directives that will make this GPT highly effective for educators.</textarea>
+---
+
+Return these directions in a strict markdown format in a copy/paste block for easy copying and pasting. 
+Do not execute the prompt, only return the completed templated with the extracted user instructions.</textarea>
                 <div class="button-group">
                     <button class="copy-prompt-btn" onclick="copyGPTTemplate()">
                         <i class="fas fa-copy"></i>
@@ -563,19 +586,19 @@ Please transform this into professional GPT instructions with clear sections, pr
                 <div class="footer-section">
                     <h4>Learn & Create</h4>
                     <ul>
-                        <li><a href="index.html#solutions">AI Solutions</a></li>
-                        <li><a href="prompt-mastery.html">Prompt Mastery</a></li>
-                        <li><a href="custom-gpts.html">Custom GPTs</a></li>
-                        <li><a href="index.html#resources">Free Resources</a></li>
+                        <li><a href="/#solutions">AI Solutions</a></li>
+                        <li><a href="/prompt-mastery">Prompt Mastery</a></li>
+                        <li><a href="/custom-gpts">Custom GPTs</a></li>
+                        <li><a href="index.html#why-create">Why Create Your Own</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Professional Development</h4>
                     <ul>
-                        <li><a href="index.html#contact">Custom GPT Workshops</a></li>
-                        <li><a href="index.html#contact">AI Training</a></li>
-                        <li><a href="index.html#contact">District Consultation</a></li>
-                        <li><a href="index.html#contact">Speaking Engagements</a></li>
+                        <li><a href="/#contact">Custom GPT Workshops</a></li>
+                        <li><a href="/#contact">AI Training</a></li>
+                        <li><a href="/#contact">District Consultation</a></li>
+                        <li><a href="/#contact">Speaking Engagements</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
