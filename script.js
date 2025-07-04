@@ -5,13 +5,66 @@ const navMenu = document.querySelector('.nav-menu');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    if (navMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
 });
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
+    document.body.style.overflow = '';
 }));
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Prevent horizontal scroll on mobile
+function preventHorizontalScroll() {
+    // Check for horizontal overflow
+    if (document.body.scrollWidth > window.innerWidth) {
+        console.warn('Horizontal overflow detected');
+        
+        // Find elements that might be causing overflow
+        const elements = document.querySelectorAll('*');
+        elements.forEach(el => {
+            if (el.scrollWidth > el.clientWidth && el.clientWidth > 0) {
+                el.style.maxWidth = '100%';
+                el.style.overflowX = 'hidden';
+            }
+        });
+    }
+}
+
+// Add touch-friendly improvements
+function improveTouchExperience() {
+    // Add touch feedback to buttons
+    document.querySelectorAll('.btn, .nav-link, .card').forEach(element => {
+        element.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        element.addEventListener('touchend', function() {
+            this.style.transform = '';
+        });
+    });
+    
+    // Improve scrolling on iOS
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        document.body.style.webkitOverflowScrolling = 'touch';
+    }
+}
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -372,7 +425,6 @@ function initializePriceComparison() {
 // Initialize all functionality
 document.addEventListener('DOMContentLoaded', function() {
     observeElements();
-    addSearchFunctionality();
     
     // Add loading animation to the page
     document.body.style.opacity = '0';
@@ -381,6 +433,15 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         document.body.style.opacity = '1';
     }, 100);
+    
+    // Initialize mobile optimizations
+    preventHorizontalScroll();
+    improveTouchExperience();
+    
+    // Check for horizontal overflow on resize
+    window.addEventListener('resize', () => {
+        setTimeout(preventHorizontalScroll, 100);
+    });
     
     // Initialize new features
     animateStats();
@@ -391,6 +452,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add typing effect after a delay
     setTimeout(initializeTypingEffect, 1000);
 });
+
+// Add function to check if search functionality exists before calling it
+function addSearchFunctionality() {
+    // This function is referenced but not defined in the original code
+    // Adding a placeholder to prevent errors
+    const searchInput = document.querySelector('.search-bar input');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            // Add search functionality here if needed
+            console.log('Search term:', e.target.value);
+        });
+    }
+}
 
 // Add CSS classes for animations
 const style = document.createElement('style');
