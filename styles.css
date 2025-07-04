@@ -1296,51 +1296,6 @@ html {
     box-shadow: var(--shadow-light);
 }
 
-.newsletter h5 {
-    color: var(--primary-text);
-    margin-bottom: 1rem;
-}
-
-.newsletter-form {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.newsletter-input {
-    flex: 1;
-    padding: 0.75rem;
-    background: var(--card-bg);
-    border: 1px solid rgba(0, 217, 255, 0.2);
-    border-radius: 8px;
-    color: var(--primary-text);
-    font-size: 0.9rem;
-    transition: border-color 0.3s ease;
-}
-
-.newsletter-input:focus {
-    outline: none;
-    border-color: var(--primary-accent);
-}
-
-.newsletter-input::placeholder {
-    color: var(--secondary-text);
-}
-
-.newsletter-btn {
-    background: var(--gradient-accent);
-    border: none;
-    border-radius: 8px;
-    width: 45px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.newsletter-btn:hover {
-    transform: translateX(3px);
-    box-shadow: var(--shadow-light);
-}
-
 .footer-bottom {
     border-top: 1px solid rgba(0, 217, 255, 0.1);
     padding-top: 2rem;
@@ -2236,10 +2191,27 @@ table {
 
 /* Improve performance on mobile */
 @media (max-width: 768px) {
-    /* Reduce animations on mobile for better performance */
-    * {
-        -webkit-animation-duration: 0.3s !important;
-        animation-duration: 0.3s !important;
+    /* Slow down fast animations on mobile */
+    .ai-brain > i {
+        animation-duration: 4s !important; /* Slower brain pulse */
+    }
+    
+    .neural-node {
+        animation-duration: 5s !important; /* Slower neural network */
+    }
+    
+    @keyframes infinity-rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .stat-number:contains("∞") {
+        animation: infinity-rotate 6s linear infinite !important; /* Much slower infinity */
+    }
+    
+    /* Slow down floating elements */
+    .element {
+        animation-duration: 8s !important;
     }
     
     /* Optimize backdrop filters for mobile */

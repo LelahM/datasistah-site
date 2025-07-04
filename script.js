@@ -331,14 +331,16 @@ Please transform this into professional GPT instructions with clear sections, pr
 // Add interactive animations to stats
 function animateStats() {
     const stats = document.querySelectorAll('.stat-number');
+    const isMobile = window.innerWidth <= 768;
+    
     stats.forEach(stat => {
         const text = stat.textContent;
         if (text === '$0') {
-            stat.style.animation = 'price-flash 2s ease-in-out infinite';
+            stat.style.animation = `price-flash ${isMobile ? '3s' : '2s'} ease-in-out infinite`;
         } else if (text === '100%') {
-            stat.style.animation = 'percentage-grow 2s ease-in-out infinite';
+            stat.style.animation = `percentage-grow ${isMobile ? '3s' : '2s'} ease-in-out infinite`;
         } else if (text === '∞') {
-            stat.style.animation = 'infinity-rotate 3s linear infinite';
+            stat.style.animation = `infinity-rotate ${isMobile ? '8s' : '3s'} linear infinite`;
         }
     });
 }
