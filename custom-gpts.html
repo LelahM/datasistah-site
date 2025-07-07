@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom GPTs - Build Your Own AI Assistant | AITeach Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-brain"></i>
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="logo-text">
+                    <h2>AITeach Pro</h2>
+                    <span>Create, Don't Buy</span>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/prompt-mastery" class="nav-link">Prompt Mastery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/custom-gpts" class="nav-link active">Custom GPTs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/#resources" class="nav-link">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="marketplace-hero">
+        <div class="container">
+            <div class="marketplace-header">
+                <h1>Custom GPTs</h1>
+                <p>Learn to build your own AI assistants tailored specifically for education. GPTs are custom versions of ChatGPT that you can create for any teaching need.</p>
+                <div class="marketplace-stats">
+                    <div class="marketplace-stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Possibilities</span>
+                    </div>
+                    <div class="marketplace-stat">
+                        <span class="stat-number">Free</span>
+                        <span class="stat-label">For All ChatGPT Users</span>
+                    </div>
+                    <div class="marketplace-stat">
+                        <span class="stat-number">No Code</span>
+                        <span class="stat-label">Required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What are Custom GPTs -->
+    <section class="gpt-filters">
+        <div class="container">
+            <div class="section-header">
+                <h2>What are Custom GPTs?</h2>
+                <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.7;">
+                    GPTs are custom versions of ChatGPT that users can tailor for specific tasks or topics by combining instructions, knowledge, and capabilities. They can be as simple or as complex as needed, addressing anything from lesson planning and curriculum development to student feedback and parent communication. Plus, Team, and Enterprise users can start creating GPTs at <a href="https://chatgpt.com/create" target="_blank" style="color: var(--primary-accent);">chatgpt.com/create</a>.
+                </p>
+                <p style="max-width: 800px; margin: 2rem auto 0; font-size: 1.1rem; line-height: 1.7;">
+                    GPTs live inside of ChatGPT and are created using a simple, no-code interface. <strong style="color: var(--primary-accent);">Creating custom GPTs requires a ChatGPT Plus subscription</strong>, but <strong style="color: var(--success-color);">using GPTs is free for all ChatGPT users</strong> - you can explore and use thousands of pre-built GPTs at the <a href="https://chatgpt.com/gpts" target="_blank" style="color: var(--primary-accent);">ChatGPT Marketplace</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits of Custom GPTs -->
+    <section class="what-are-gpts">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Create Custom GPTs?</h2>
+                <p>Say goodbye to prompt templates - GPTs are the future of AI assistance</p>
+            </div>
+            
+            <div class="gpts-grid">
+                <div class="gpt-card">
+                    <div class="card-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Easy Sharing & Collaboration</h3>
+                    <p>Share your custom GPTs with students, parents, coworkers, or district-wide. One link gives everyone access to your specialized AI assistant without needing to copy and paste complex prompts.</p>
+                    <div class="card-tools">
+                        <span class="tool">Students</span>
+                        <span class="tool">Parents</span>
+                        <span class="tool">Colleagues</span>
+                        <span class="tool">District-Wide</span>
+                    </div>
+                </div>
+                
+                <div class="gpt-card">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Save Time & Reduce Workload</h3>
+                    <p>Stop writing the same prompts over and over. Create once, use forever. Your GPT remembers your instructions, style, and preferences, making your teaching tasks faster and more consistent.</p>
+                    <div class="card-tools">
+                        <span class="tool">Automated Tasks</span>
+                        <span class="tool">Consistent Results</span>
+                        <span class="tool">Time Savings</span>
+                    </div>
+                </div>
+                
+                <div class="gpt-card">
+                    <div class="card-icon">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <h3>Goodbye to Prompt Templates</h3>
+                    <p>No more managing folders of prompt templates or copying and pasting instructions. Your GPT IS your template - always available, always consistent, and infinitely more powerful.</p>
+                    <div class="card-tools">
+                        <span class="tool">No Copy/Paste</span>
+                        <span class="tool">Always Available</span>
+                        <span class="tool">Consistent Quality</span>
+                    </div>
+                </div>
+                
+                <div class="gpt-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Tailored for Your Teaching Style</h3>
+                    <p>Create GPTs that match your specific grade level, subject area, and teaching philosophy. Upload your curriculum materials and rubrics to make it truly yours.</p>
+                    <div class="card-tools">
+                        <span class="tool">Grade-Specific</span>
+                        <span class="tool">Subject-Focused</span>
+                        <span class="tool">Your Style</span>
+                    </div>
+                </div>
+                
+                <div class="gpt-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Support Your Entire Learning Community</h3>
+                    <p>Create different GPTs for different audiences - one for lesson planning, another for parent communication, and another for student support. Each tailored perfectly for its purpose.</p>
+                    <div class="card-tools">
+                        <span class="tool">Multiple Audiences</span>
+                        <span class="tool">Specific Purposes</span>
+                        <span class="tool">Professional Support</span>
+                    </div>
+                </div>
+                
+                <div class="gpt-card">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Professional Development Tool</h3>
+                    <p>Build GPTs that enhance your professional growth - from research assistants to reflection tools. Share successful GPTs with your professional learning community and become a leader in AI integration.</p>
+                    <div class="card-tools">
+                        <span class="tool">Research</span>
+                        <span class="tool">Reflection</span>
+                        <span class="tool">Leadership</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="empowerment-statement">
+                <div class="statement-content">
+                    <h3>Transform Your Teaching Workflow</h3>
+                    <p>Stop managing dozens of prompt templates and start creating intelligent AI assistants that work exactly how you need them to. Your GPTs become your teaching superpowers - consistent, shareable, and always improving your effectiveness.</p>
+                    <a href="#gpt-template" class="btn btn-accent">
+                        <i class="fas fa-rocket"></i>
+                        Try the Free GPT Template Booster
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step-by-Step Guide -->
+    <section id="guide" class="guide">
+        <div class="container">
+            <h2>How to Build Your Custom GPT</h2>
+            <p class="guide-intro">Follow this comprehensive guide to create your first custom GPT for education</p>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Access GPT Builder</h3>
+                        <p>Log into ChatGPT Plus and navigate to "Explore" then "Create a GPT". This opens the GPT Builder interface where you'll design your custom assistant.</p>
+                        <div class="step-details">
+                            <ul>
+                                <li>Requires ChatGPT Plus subscription</li>
+                                <li>Click "Create" in the top-left corner</li>
+                                <li>Choose "Create a GPT" option</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Define Your GPT's Purpose</h3>
+                        <p>Clearly articulate what your GPT will do. Be specific about its role in education and how it will help teachers or students.</p>
+                        <div class="step-details">
+                            <h4>Example Educational GPT Ideas:</h4>
+                            <ul>
+                                <li><strong>Lesson Plan Assistant:</strong> Creates detailed lesson plans based on curriculum standards</li>
+                                <li><strong>Quiz Generator:</strong> Generates quizzes and assessments for any topic</li>
+                                <li><strong>Writing Coach:</strong> Helps students improve their writing skills</li>
+                                <li><strong>Math Tutor:</strong> Provides step-by-step math problem solving</li>
+                                <li><strong>Reading Comprehension Helper:</strong> Creates questions and activities for texts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Configure Basic Settings</h3>
+                        <p>Set up your GPT's name, description, and initial conversation starters that will help users understand how to interact with it.</p>
+                        <div class="step-details">
+                            <h4>Key Configuration Elements:</h4>
+                            <ul>
+                                <li><strong>Name:</strong> Choose a clear, descriptive name (e.g., "5th Grade Math Tutor")</li>
+                                <li><strong>Description:</strong> Explain what your GPT does and who it's for</li>
+                                <li><strong>Instructions:</strong> Write detailed instructions for how the GPT should behave</li>
+                                <li><strong>Conversation Starters:</strong> Provide example prompts to guide users</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Write Effective Instructions</h3>
+                        <p>The instructions are the most critical part. They define your GPT's personality, expertise, and behavior patterns.</p>
+                        <div class="step-details">
+                            <h4>Instruction Writing Tips:</h4>
+                            <ul>
+                                <li>Be specific about the GPT's role and expertise</li>
+                                <li>Define the target audience (grade level, subject area)</li>
+                                <li>Set behavioral guidelines (tone, safety measures)</li>
+                                <li>Include examples of desired responses</li>
+                                <li>Specify what the GPT should NOT do</li>
+                            </ul>
+                            <div class="example-box">
+                                <h5>Example Instruction Template:</h5>
+                                <code>
+                                    "You are a 4th-grade reading comprehension assistant. Your role is to help students understand texts by asking thoughtful questions and providing age-appropriate explanations. Always use encouraging language and break down complex concepts into simple terms. Never provide direct answers to homework questions, but guide students to discover answers themselves."
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Upload Knowledge Files</h3>
+                        <p>Enhance your GPT with specific educational content by uploading relevant documents, curriculum guides, or resource materials.</p>
+                        <div class="step-details">
+                            <h4>Useful File Types for Education:</h4>
+                            <ul>
+                                <li>Curriculum standards and guidelines</li>
+                                <li>Textbook chapters or educational content</li>
+                                <li>Lesson plan templates</li>
+                                <li>Assessment rubrics</li>
+                                <li>Educational research papers</li>
+                            </ul>
+                            <div class="warning-box">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p><strong>Privacy Note:</strong> Only upload content you have permission to use and that doesn't contain student personal information.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Enable Actions (Advanced)</h3>
+                        <p>For advanced users, you can connect your GPT to external tools and services to expand its capabilities.</p>
+                        <div class="step-details">
+                            <h4>Educational Action Ideas:</h4>
+                            <ul>
+                                <li>Connect to Google Classroom for assignment management</li>
+                                <li>Integrate with educational databases</li>
+                                <li>Link to school's learning management system</li>
+                                <li>Connect to online educational tools</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h3>Test and Refine</h3>
+                        <p>Thoroughly test your GPT with various scenarios and refine its instructions based on the results.</p>
+                        <div class="step-details">
+                            <h4>Testing Checklist:</h4>
+                            <ul>
+                                <li>Test with typical student questions</li>
+                                <li>Verify age-appropriate responses</li>
+                                <li>Check for educational accuracy</li>
+                                <li>Ensure safety guidelines are followed</li>
+                                <li>Test edge cases and unusual inputs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">8</div>
+                    <div class="step-content">
+                        <h3>Publish and Share</h3>
+                        <p>Once satisfied with your GPT, publish it and share with your educational community.</p>
+                        <div class="step-details">
+                            <h4>Sharing Options:</h4>
+                            <ul>
+                                <li><strong>Only me:</strong> Keep it private for personal use</li>
+                                <li><strong>Only people with a link:</strong> Share with specific colleagues</li>
+                                <li><strong>Public:</strong> Make it available to anyone (requires approval)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="best-practices">
+        <div class="container">
+            <h2>Best Practices for Educational GPTs</h2>
+            <div class="practices-grid">
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Student Privacy First</h3>
+                    <ul>
+                        <li>Never include student personal information in GPT training</li>
+                        <li>Use generic examples and scenarios</li>
+                        <li>Follow FERPA and local privacy guidelines</li>
+                        <li>Regularly review and update privacy settings</li>
+                    </ul>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Age-Appropriate Content</h3>
+                    <ul>
+                        <li>Tailor language complexity to grade level</li>
+                        <li>Include content filters for inappropriate material</li>
+                        <li>Test responses with actual age group in mind</li>
+                        <li>Provide clear usage guidelines for students</li>
+                    </ul>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Educational Accuracy</h3>
+                    <ul>
+                        <li>Verify all educational content for accuracy</li>
+                        <li>Align with current curriculum standards</li>
+                        <li>Include sources and references when possible</li>
+                        <li>Regular updates to maintain relevance</li>
+                    </ul>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Promote Critical Thinking</h3>
+                    <ul>
+                        <li>Guide students to find answers, don't just provide them</li>
+                        <li>Ask follow-up questions to deepen understanding</li>
+                        <li>Encourage multiple approaches to problem-solving</li>
+                        <li>Foster curiosity and exploration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GPT Instructions Template -->
+    <section id="gpt-template" class="ai-prompt-improver">
+        <div class="container">
+            <div class="improver-header">
+                <h3>Custom GPT Instructions Template</h3>
+                <p>Use this proven template to create clear, effective instructions for your custom GPTs</p>
+            </div>
+            
+            <div class="tool-description">
+                <h4>How to Use This GPT Prompt Booster</h4>
+                <p>Edit the template below by filling in your specific requirements in the bracketed sections, then copy and paste the entire prompt into ChatGPT. ChatGPT will return a polished, ready-to-use instruction set for your custom GPT in perfect markdown format.</p>
+            </div>
+            
+            <div class="meta-prompt">
+                <textarea class="gpt-template-editor" id="gptTemplateText" rows="25">Please create optimized instructions for a custom GPT based on the following specifications. Return the instructions in strict markdown format with proper headers, bullet points, and formatting that I can copy directly into the GPT builder.
+
+## GPT Specifications:
+
+**Purpose & Goal:**
+- This GPT is designed to help with: [e.g., "creating differentiated math worksheets for 4th grade students"]
+- Primary output should be: [e.g., "printable worksheets with answer keys"]
+- Key functionality needed: [e.g., "adjust difficulty levels, include visual aids, align to Common Core standards"]
+
+**Target Users:**
+- Primary users: [e.g., "elementary school teachers, homeschool parents"]
+- User skill level: [e.g., "beginner to intermediate with technology"]
+- Main challenges users face: [e.g., "not enough time to create materials, need multiple difficulty levels"]
+
+**Communication Style:**
+- Tone: [e.g., "encouraging and supportive"]
+- Personality: [e.g., "like a helpful teaching mentor"]
+- Language level: [e.g., "clear and jargon-free"]
+- Avoid: [e.g., "complex educational theory, overwhelming choices"]
+
+**Response Format:**
+- Structure responses as: [e.g., "numbered steps with brief explanations"]
+- Include: [e.g., "examples, implementation tips, time estimates"]
+- Length: [e.g., "concise but comprehensive, under 300 words unless requested"]
+- Special formatting: [e.g., "use tables for comparing options"]
+
+**Knowledge & References:**
+- Key standards/frameworks: [e.g., "Common Core Math Standards, Bloom's Taxonomy"]
+- Preferred methodologies: [e.g., "hands-on learning, visual representations"]
+- Resources to reference: [e.g., "research-based teaching strategies"]
+
+**Important Restrictions:**
+- Never do: [e.g., "provide direct homework answers to students"]
+- Always avoid: [e.g., "suggesting expensive materials or complex technology"]
+- Privacy considerations: [e.g., "don't request student personal information"]
+- Safety guidelines: [e.g., "ensure age-appropriate content only"]
+
+**Special Instructions:**
+- Always ask clarifying questions when: [e.g., "grade level or topic isn't specified"]
+- Provide multiple options when: [e.g., "creating lesson activities"]
+- Include these elements: [e.g., "time estimates, material lists, differentiation tips"]
+- End responses with: [e.g., "asking if the user needs modifications or has questions"]
+
+Please transform this into professional GPT instructions with clear sections, proper markdown formatting, and actionable directives that will make this GPT highly effective for educators.</textarea>
+                <div class="button-group">
+                    <button class="copy-prompt-btn" onclick="copyGPTTemplate()">
+                        <i class="fas fa-copy"></i>
+                        Copy Prompt Booster
+                    </button>
+                    <button class="reset-prompt-btn" onclick="resetGPTTemplate()">
+                        <i class="fas fa-undo"></i>
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2>Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-category">
+                    <h3><i class="fas fa-book"></i> Getting Started</h3>
+                    <ul>
+                        <li><a href="https://help.openai.com/en/articles/8554397-creating-a-gpt?utm_source=chatgpt.com" class="resource-link" target="_blank">OpenAI Help: Creating a GPT</a></li>
+                        <li><a href="https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus?utm_source=chatgpt.com" class="resource-link" target="_blank">ChatGPT Plus Subscription Info</a></li>
+                        <li><a href="https://chatgpt.com/create" class="resource-link" target="_blank">GPT Builder (Requires Plus)</a></li>
+                        <li><a href="https://chatgpt.com/gpts" class="resource-link" target="_blank">ChatGPT Marketplace</a></li>
+                    </ul>
+                </div>
+                <div class="resource-category">
+                    <h3><i class="fas fa-tools"></i> Advanced Techniques</h3>
+                    <ul>
+                        <li><a href="https://actions.zapier.com/docs/platform/gpt/?utm_source=chatgpt.com" class="resource-link" target="_blank">GPT Actions & Integrations</a></li>
+                        <li><a href="https://help.openai.com/en/articles/9358033-key-guidelines-for-writing-instructions-for-custom-gpts?utm_source=chatgpt.com" class="resource-link" target="_blank">Key Guidelines for Custom GPT Instructions</a></li>
+                    </ul>
+                </div>
+                <div class="resource-category">
+                    <h3><i class="fas fa-shield-alt"></i> Safety & Privacy</h3>
+                    <ul>
+                        <li><a href="https://studentprivacy.ed.gov/guidance?utm_source=chatgpt.com" class="resource-link" target="_blank">FERPA – Protecting Student Privacy (DoE)</a></li>
+                        <li><a href="https://teaching.cornell.edu/generative-artificial-intelligence/ethical-ai-teaching-and-learning?utm_source=chatgpt.com" class="resource-link" target="_blank">Cornell – Ethical AI in Teaching</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="marketplace-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Build Your First Custom GPT?</h2>
+                <p>Start creating custom AI assistants tailored to your teaching needs. No coding required!</p>
+                <div class="cta-buttons">
+                    <a href="https://chatgpt.com/create" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-plus"></i>
+                        Create Your GPT
+                    </a>
+                    <a href="https://chatgpt.com/gpts" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-store"></i>
+                        Explore GPT Marketplace
+                    </a>
+                    <a href="index.html#contact" class="btn btn-accent">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        Get Training
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-container">
+                            <div class="logo-icon">
+                                <i class="fas fa-brain"></i>
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="logo-text">
+                                <h3>AITeach Pro</h3>
+                                <span>Create, Don't Buy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Empowering educators to create their own AI solutions instead of buying expensive subscriptions.</p>
+                    <div class="motto">
+                        <i class="fas fa-quote-left"></i>
+                        <span>Don't buy AI solutions, create your own</span>
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Learn & Create</h4>
+                    <ul>
+                        <li><a href="prompt-mastery.html">Prompt Mastery</a></li>
+                        <li><a href="custom-gpts.html">Custom GPTs</a></li>
+                        <li><a href="index.html#resources">Free Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Professional Development</h4>
+                    <ul>
+                        <li><a href="index.html#contact">Custom GPT Workshops</a></li>
+                        <li><a href="index.html#contact">AI Training</a></li>
+                        <li><a href="index.html#contact">District Consultation</a></li>
+                        <li><a href="index.html#contact">Speaking Engagements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/tiffany-teasley/" class="social-link" title="LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:tiffany@datasistah.com" class="social-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <div class="contact-direct">
+                        <h5>Direct Contact</h5>
+                        <p class="contact-email">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:tiffany@datasistah.com">tiffany@datasistah.com</a>
+                        </p>
+                        <p class="contact-linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/tiffany-teasley/" target="_blank">LinkedIn Profile</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Tiffany Teasley - AITeach Pro. Empowering educators worldwide.</p>
+                    <div class="footer-badges">
+                        <span class="badge">🧠 AI-Powered</span>
+                        <span class="badge">🎓 Educator-Built</span>
+                        <span class="badge">💡 Innovation-Focused</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -5,13 +5,66 @@ const navMenu = document.querySelector('.nav-menu');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    if (navMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
 });
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
+    document.body.style.overflow = '';
 }));
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Prevent horizontal scroll on mobile
+function preventHorizontalScroll() {
+    // Check for horizontal overflow
+    if (document.body.scrollWidth > window.innerWidth) {
+        console.warn('Horizontal overflow detected');
+        
+        // Find elements that might be causing overflow
+        const elements = document.querySelectorAll('*');
+        elements.forEach(el => {
+            if (el.scrollWidth > el.clientWidth && el.clientWidth > 0) {
+                el.style.maxWidth = '100%';
+                el.style.overflowX = 'hidden';
+            }
+        });
+    }
+}
+
+// Add touch-friendly improvements
+function improveTouchExperience() {
+    // Add touch feedback to buttons
+    document.querySelectorAll('.btn, .nav-link, .card').forEach(element => {
+        element.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        element.addEventListener('touchend', function() {
+            this.style.transform = '';
+        });
+    });
+    
+    // Improve scrolling on iOS
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        document.body.style.webkitOverflowScrolling = 'touch';
+    }
+}
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -62,67 +115,9 @@ const observeElements = () => {
     });
 };
 
-// Contact Form Handling
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const formStatus = document.getElementById('form-status');
-    
-    // Replace this URL with your Google Apps Script Web App URL
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzB1LU9jdjyJ9uK9kOy5omIQE27gHLjjhIBh9SPwkNBZopRuCDax8PBXhaEJWspz-rN/exec';
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Show loading state
-            submitBtn.classList.add('loading');
-            submitBtn.disabled = true;
-            formStatus.style.display = 'none';
-            
-            // Collect form data
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-            
-            try {
-                // Send to Google Apps Script
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // Required for Google Apps Script
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                // Show success message
-                showStatus('success', '✅ Thank you! Your message has been sent. I\'ll get back to you within 24 hours.');
-                contactForm.reset();
-                
-            } catch (error) {
-                console.error('Form submission error:', error);
-                showStatus('error', '❌ Sorry, there was an error sending your message. Please try emailing me directly at tiffany@datasistah.com');
-            } finally {
-                // Reset button state
-                submitBtn.classList.remove('loading');
-                submitBtn.disabled = false;
-            }
-        });
-    }
-    
-    function showStatus(type, message) {
-        formStatus.className = `form-status ${type}`;
-        formStatus.textContent = message;
-        formStatus.style.display = 'block';
-        
-        // Auto-hide success messages after 5 seconds
-        if (type === 'success') {
-            setTimeout(() => {
-                formStatus.style.display = 'none';
-            }, 5000);
-        }
-    }
-});
+// Contact Form Handling - REMOVED
+// Contact form has been replaced with Calendly and direct email options
+// No JavaScript needed for the new contact setup
 
 // Notification system
 function showNotification(message, type = 'info') {
@@ -219,14 +214,6 @@ document.querySelectorAll('.btn').forEach(button => {
     });
 });
 
-// Add hover effects to resource links
-document.querySelectorAll('.resource-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        showNotification('This resource will be available soon!', 'info');
-    });
-});
-
 // Copy prompt functionality
 function copyPrompt() {
     const promptText = document.querySelector('.prompt-text').textContent;
@@ -237,17 +224,123 @@ function copyPrompt() {
     });
 }
 
+// Copy GPT template functionality
+function copyGPTTemplate() {
+    const templateTextarea = document.getElementById('gptTemplateText');
+    if (templateTextarea) {
+        // Get the current value from the textarea (which may have been edited by the user)
+        const templateText = templateTextarea.value.trim();
+        
+        // Use the more robust clipboard API
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(templateText).then(() => {
+                showNotification('GPT Prompt Booster copied to clipboard!', 'success');
+            }).catch((err) => {
+                console.error('Failed to copy prompt booster:', err);
+                fallbackCopyMethod(templateText);
+            });
+        } else {
+            fallbackCopyMethod(templateText);
+        }
+    } else {
+        showNotification('Prompt template not found', 'error');
+        console.error('Could not find GPT template textarea');
+    }
+}
+
+// Fallback copy method for older browsers
+function fallbackCopyMethod(text) {
+    try {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        if (successful) {
+            showNotification('GPT Prompt Booster copied to clipboard!', 'success');
+        } else {
+            showNotification('Failed to copy prompt booster', 'error');
+        }
+    } catch (err) {
+        console.error('Fallback copy failed:', err);
+        showNotification('Failed to copy prompt booster', 'error');
+    }
+}
+
+// Reset GPT template to original state
+function resetGPTTemplate() {
+    const templateTextarea = document.getElementById('gptTemplateText');
+    if (templateTextarea) {
+        const originalTemplate = `Please create optimized instructions for a custom GPT based on the following specifications. Return the instructions in strict markdown format with proper headers, bullet points, and formatting that I can copy directly into the GPT builder.
+
+## GPT Specifications:
+
+**Purpose & Goal:**
+- This GPT is designed to help with: [e.g., "creating differentiated math worksheets for 4th grade students"]
+- Primary output should be: [e.g., "printable worksheets with answer keys"]
+- Key functionality needed: [e.g., "adjust difficulty levels, include visual aids, align to Common Core standards"]
+
+**Target Users:**
+- Primary users: [e.g., "elementary school teachers, homeschool parents"]
+- User skill level: [e.g., "beginner to intermediate with technology"]
+- Main challenges users face: [e.g., "not enough time to create materials, need multiple difficulty levels"]
+
+**Communication Style:**
+- Tone: [e.g., "encouraging and supportive"]
+- Personality: [e.g., "like a helpful teaching mentor"]
+- Language level: [e.g., "clear and jargon-free"]
+- Avoid: [e.g., "complex educational theory, overwhelming choices"]
+
+**Response Format:**
+- Structure responses as: [e.g., "numbered steps with brief explanations"]
+- Include: [e.g., "examples, implementation tips, time estimates"]
+- Length: [e.g., "concise but comprehensive, under 300 words unless requested"]
+- Special formatting: [e.g., "use tables for comparing options"]
+
+**Knowledge & References:**
+- Key standards/frameworks: [e.g., "Common Core Math Standards, Bloom's Taxonomy"]
+- Preferred methodologies: [e.g., "hands-on learning, visual representations"]
+- Resources to reference: [e.g., "research-based teaching strategies"]
+
+**Important Restrictions:**
+- Never do: [e.g., "provide direct homework answers to students"]
+- Always avoid: [e.g., "suggesting expensive materials or complex technology"]
+- Privacy considerations: [e.g., "don't request student personal information"]
+- Safety guidelines: [e.g., "ensure age-appropriate content only"]
+
+**Special Instructions:**
+- Always ask clarifying questions when: [e.g., "grade level or topic isn't specified"]
+- Provide multiple options when: [e.g., "creating lesson activities"]
+- Include these elements: [e.g., "time estimates, material lists, differentiation tips"]
+- End responses with: [e.g., "asking if the user needs modifications or has questions"]
+
+Please transform this into professional GPT instructions with clear sections, proper markdown formatting, and actionable directives that will make this GPT highly effective for educators.`;
+        
+        templateTextarea.value = originalTemplate;
+        showNotification('GPT template reset to original!', 'success');
+    }
+}
+
 // Add interactive animations to stats
 function animateStats() {
     const stats = document.querySelectorAll('.stat-number');
+    const isMobile = window.innerWidth <= 768;
+    
     stats.forEach(stat => {
         const text = stat.textContent;
         if (text === '$0') {
-            stat.style.animation = 'price-flash 2s ease-in-out infinite';
+            stat.style.animation = `price-flash ${isMobile ? '3s' : '2s'} ease-in-out infinite`;
         } else if (text === '100%') {
-            stat.style.animation = 'percentage-grow 2s ease-in-out infinite';
+            stat.style.animation = `percentage-grow ${isMobile ? '3s' : '2s'} ease-in-out infinite`;
         } else if (text === '∞') {
-            stat.style.animation = 'infinity-rotate 3s linear infinite';
+            stat.style.animation = `infinity-rotate ${isMobile ? '8s' : '3s'} linear infinite`;
         }
     });
 }
@@ -334,7 +427,6 @@ function initializePriceComparison() {
 // Initialize all functionality
 document.addEventListener('DOMContentLoaded', function() {
     observeElements();
-    addSearchFunctionality();
     
     // Add loading animation to the page
     document.body.style.opacity = '0';
@@ -343,6 +435,15 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         document.body.style.opacity = '1';
     }, 100);
+    
+    // Initialize mobile optimizations
+    preventHorizontalScroll();
+    improveTouchExperience();
+    
+    // Check for horizontal overflow on resize
+    window.addEventListener('resize', () => {
+        setTimeout(preventHorizontalScroll, 100);
+    });
     
     // Initialize new features
     animateStats();
@@ -353,6 +454,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add typing effect after a delay
     setTimeout(initializeTypingEffect, 1000);
 });
+
+// Add function to check if search functionality exists before calling it
+function addSearchFunctionality() {
+    // This function is referenced but not defined in the original code
+    // Adding a placeholder to prevent errors
+    const searchInput = document.querySelector('.search-bar input');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            // Add search functionality here if needed
+            console.log('Search term:', e.target.value);
+        });
+    }
+}
 
 // Add CSS classes for animations
 const style = document.createElement('style');
